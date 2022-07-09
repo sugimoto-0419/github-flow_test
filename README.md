@@ -14,3 +14,11 @@ GitHub flowの練習用リポジトリ
 1. ローカルにプルする
 
 ## おすすめ VScode 拡張機能
+
+1. [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+1. [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+1. [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+
+GitHub Pull Requests and Issuesは、VScodeからプルリクエストを送ることと、マージすることができる。
+
+## コマンドでGitを操作するための基本コマンド一覧
