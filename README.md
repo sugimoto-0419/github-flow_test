@@ -22,3 +22,9 @@ GitHub flowの練習用リポジトリ
 GitHub Pull Requests and Issuesは、VScodeからプルリクエストを送ることと、マージすることができる。
 
 ## コマンドでGitを操作するための基本コマンド一覧
+
+### 実務でよく使うコマンド
+
+#### 参考サイト
+
+[実務でどんな git コマンドを使っているか振り返ってみる](https://qiita.com/west-hiroaki/items/74cccbc22b2cc7a4aacb)
