@@ -25,13 +25,16 @@ GitHub Pull Requests and Issuesは、VScodeからプルリクエストを送る�
 
 ### 実務でよく使うコマンド
 
-***＞リモートリポジトリをローカルにクローンする***
+***＞リモートリポジトリをローカルにクローンする***  
+`git clone`コマンドで、開発リポジトリをローカルに取得します。  
+ディレクトリ名は、「project」とします。
 
 ```shell
 git clone https://github.com/west-hiroaki/git-test-for-qiita.git project
 ```
 
-このコマンドは、HTTPS
+このコマンドは、HTTPSでクローンする場合です。
+SSHでクローンする場合は、[ここ](https://qiita.com/dorara/items/942485e064f3e2bdd4f7)を参照してください。
 
 #### 参考サイト
 
