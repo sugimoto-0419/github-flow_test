@@ -101,6 +101,169 @@ index 08b06f9..830abe4 100644
  </html>
 ```
 
+#### *＞ワークツリーからインデックスに移動する*
+
+`git add`コマンドで、修正ファイル（index.html）を、ワークツリーからインデックスに移動します。
+
+```shell
+git add index.html
+```
+
+#### *＞インデックスの状態を確認する*
+
+`git status`コマンドで、インデックスの状態を確認します。  
+修正したファイル以外がインデックスに入っていないことを確認します。
+
+```shell
+git status
+```
+
+```shell
+On branch feature/add-image
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   index.html
+
+```
+
+「index.html」以外がインデックスに入っていないことを確認しました。
+
+#### *＞インデックスのファイル差分を確認する*
+
+`git diff --cached`コマンドで、インデックスのファイル差分を確認します。  
+「commit」前に、ファイルの差分を最終確認するためです。  
+この例だとあまり意味がないですが、実際のプロジェクトだと修正ファイルや差分も多く、間違った修正を入れるわけにはいきませんので重要です。
+
+```shell
+git diff --cached index.html
+```
+
+```shell
+diff --git a/index.html b/index.html
+index 08b06f9..830abe4 100644
+--- a/index.html
++++ b/index.html
+@@ -9,5 +9,6 @@
+     <hr>
+     <p>github hello!!</p>
+     <button>click!</button>
++    <img src="images/github.png" alt="github-logo">
+ </body>
+ </html>
+```
+
+#### *＞コミットする*
+
+修正内容の確認ができたので、`git commit`コマンドで、インデックスのファイルをブランチに反映します。
+
+```shell
+git commit -m '画像を表示するように修正しました'
+```
+
+```shell
+[feature/add-image 1700755] 画像を表示するように修正しました
+ 1 files changed, 1 insertion(+)
+```
+
+#### *＞ブランチのログを確認する*
+
+`git log`コマンドで、ブランチのログを確認します。  
+ログの一番上に、さっき行ったコミットが追加されていることを確認できます。
+
+```shell
+git log
+```
+
+```shell
+commit 170075502ca32ea1f37641ee22ee7cf0551a49ac (HEAD -> feature/add-image)
+Author: Souta Sugimoto <s-sugimoto@softnext.co.jp>
+Date:   Sat Jul 9 10:52:26 2022 +0900
+
+    画像を表示するように修正しました
+```
+
+>ちなみに、まだgitに慣れていない時は情報が多すぎると思いますので、`--oneline`オプションを付けると見やすくなっていいかもしれません。
+
+#### *＞プッシュする*
+
+`git push`コマンドで、リモートの開発ブランチに反映します。
+
+```shell
+git push origin feature/add-image
+```
+
+```shell
+Enumerating objects: 69, done.
+Counting objects: 100% (69/69), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (59/59), done.
+Writing objects: 100% (69/69), 52.39 KiB | 2.49 MiB/s, done.
+Total 69 (delta 14), reused 0 (delta 0)
+remote: Resolving deltas: 100% (14/14), done.
+remote: 
+remote: Create a pull request for 'feature/add-image' on GitHub by visiting:
+remote:      https://github.com/sugimoto-0419/github-flow_test/pull/new/feature/add-image
+remote: 
+To github.com:sugimoto-0419/github-flow_test.git
+ * [new branch]      feature/add-image -> feature/add-image
+```
+
+>追跡ブランチを設定しておけば、`git push`だけで「push」可能です。
+
+#### *＞マージする*
+
+`git merge`コマンドで、開発ブランチを、「master」ブランチにマージします。  
+まず、「master」ブランチに移動します。
+
+```shell
+git checkout master
+```
+
+```shell
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+```
+
+次に、「feature/five-to-ten」ブランチをマージして、リモートに「push」します。
+
+```shell
+git merge feature/add-image
+```
+
+```shell
+Updating 301b813..1700755
+Fast-forward
+ index.html        |   1 +
+ 1 files changed, 1 insertion(+)
+```
+
+リモートに「push」する。
+
+```shell
+git push origin master
+```
+
+#### *＞ブランチを削除する*
+
+`git branch -d`コマンドで、不要になったローカルの「feature/add-image」ブランチを削除します。
+
+```shell
+git branch -d feature/add-image
+```
+
+>今回は、削除対象ブランチが「master」ブランチにマージされているので`git branch -d`コマンドで削除できますが、マージされていない場合は削除できません。（ブランチ指定ミスで消してしまわないためです）
+
+#### *＞リモートブランチを削除する*
+
+同様に、「git push -d」 コマンドで、リモートブランチも削除します。
+
+```shell
+git push -d origin feature/add-image
+```
+
 #### 参考サイト
 
 [実務でどんな git コマンドを使っているか振り返ってみる](https://qiita.com/west-hiroaki/items/74cccbc22b2cc7a4aacb)
