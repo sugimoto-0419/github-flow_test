@@ -1,0 +1,10 @@
+{
+    "markdown-pdf.styles": [
+        "/Users/sugimoto/Documents/markdwon/.vscode/markdown-pdf.css"
+    ], // pdfにつけるcss
+    "markdown-pdf.includeDefaultStyles": false, // デフォルトのpdfスタイルシートを無効にする
+    "markdown-pdf.breaks": true, // pdfの改行を有効にする
+    // ヘッダー、フッターの設定
+    "markdown-pdf.headerTemplate": "<div style=\"font-family:'Ricty','ヒラギノ角ゴシック'; font-size: 8px; margin-left: auto; margin-right: 24px; \"> <span class='date'></span></div>",
+    "markdown-pdf.footerTemplate": "<div style=\"font-family:'Ricty','ヒラギノ角ゴシック'; font-size: 8px; margin: 0 auto;\"> <span class='pageNumber'></span> / <span class='totalPages'></span></div>",
+}
