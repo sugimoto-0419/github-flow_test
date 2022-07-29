@@ -9,4 +9,4 @@ test4
 
 hello!
 
-バグの修正
+thank you!
